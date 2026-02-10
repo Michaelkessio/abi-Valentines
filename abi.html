@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abi, Will You Be My Valentine? 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', 'Poppins', cursive;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5a1a3c;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 30px;
+      max-width: 900px;
+      width: 95%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(circle at top left, rgba(255,182,193,0.5), transparent 40%),
+                  radial-gradient(circle at bottom right, rgba(255,105,180,0.4), transparent 40%);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    .hearts {
+      font-size: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .photo {
+      background: #ffe4ec;
+      border-radius: 16px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b84a6a;
+      font-size: 0.9rem;
+      border: 3px dashed #ff9eb5;
+      overflow: hidden;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      position: relative;
+      height: 80px;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 12px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: absolute;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    #yesBtn {
+      background: linear-gradient(135deg, #ff5fa2, #ff2e7a);
+      color: white;
+      left: 50%;
+      transform: translateX(-120%);
+      box-shadow: 0 8px 16px rgba(255, 46, 122, 0.4);
+    }
+
+    #noBtn {
+      background: #eee;
+      color: #888;
+      left: 50%;
+      transform: translateX(20%);
+    }
+
+    #message {
+      margin-top: 25px;
+      font-size: 1.5rem;
+      color: #d81b60;
+      display: none;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="content">
+      <div class="hearts">💗 💕 💖 💞 💓</div>
+      <h1>Abi 💕</h1>
+      <h2>Will you be my Valentine?</h2>
+
+      <p>I made this little page just for you — because you make my world brighter, happier, and way more colorful ✨</p>
+
+      <div class="gallery">
+        <!-- Replace these with your own images -->
+        <div class="photo"><img src="pic1.jpg" alt="pic1"></div>
+        <div class="photo"><img src="pic2.jpg" alt="pic2"></div>
+        <div class="photo"><img src="pic3.jpg" alt="pic3"></div>
+        <div class="photo"><img src="pic4.jpg" alt="pic4"></div>
+      </div>
+
+      <div class="buttons">
+        <button id="yesBtn">YES 💖</button>
+        <button id="noBtn">No 🙈</button>
+      </div>
+
+      <div id="message">Yay!! 💕 Nilijua utasema yes! 💐<br />Happy Valentine’s, Abi 💖<br /> Umeiva manze </div>
+
+      <footer>Made with love, for Chepsu 💗 <br /> Mwaaaaah!</footer>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const message = document.getElementById('message');
+
+    // Make the NO button run away 😄
+    noBtn.addEventListener('mouseenter', () => {
+      const parent = noBtn.parentElement;
+      const maxX = parent.offsetWidth - noBtn.offsetWidth;
+      const maxY = parent.offsetHeight - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    });
+
+    // Accept only YES ❤️
+    yesBtn.addEventListener('click', () => {
+      message.style.display = 'block';
+      yesBtn.style.display = 'none';
+      noBtn.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
